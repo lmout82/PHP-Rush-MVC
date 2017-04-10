@@ -1,0 +1,65 @@
+{% extends "layout.html.twig" %}
+
+{% block title %} Create a new user {% endblock %}
+
+{% block content %}
+
+{% include 'header_admin.html.twig' %}
+
+	<div class="row">
+		<div class="col-lg-12">
+			<div>
+				<h4 class="team-member text-danger">
+				{% for msg in error_msg %}
+					{{ msg }}<br/>
+				{% endfor %}
+				</h4>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-12">
+			<form id="" novalidate="" name="create" method="post">
+				<div class="row">
+					<div class="col-md-3"></div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<input id="username" class="form-control" type="text" data-validation-required-message="Please enter a username." placeholder="Please enter a username." required name="username" min="3" max="10" value="{{ username }}">
+							<p class="help-block text-danger"></p>
+						</div>
+						<div class="form-group">
+							<input id="email" class="form-control" type="email" data-validation-required-message="Please enter an email address." placeholder="Please enter an email address." required name="email" value="{{ email }}">
+							<p class="help-block text-danger"></p>
+						</div>
+						<div class="form-group">
+							<input id="password" class="form-control" type="password" data-validation-required-message="Please enter a password." placeholder="Please enter a password." required name="password">
+							<p class="help-block text-danger"></p>
+						</div>
+						<div class="form-group">
+							<input id="password_conf" class="form-control" type="password" data-validation-required-message="Please enter a password." placeholder="Please confirm the password." required name="password_conf">
+							<p class="help-block text-danger"></p>
+						</div>
+						<div class="form-group">
+						<select name="group" class="form-control" placeholder="Please select a user category." required>
+						  <option value="registred" {% if group == "registred" %} selected{% endif %}>registred</option> 
+						  <option value="writter" {% if group == "writter" %} selected{% endif %}>writter</option>
+						  <option value="admin" {% if group == "admin" %} selected{% endif %}>admin</option>
+						</select>
+						</div>
+						<div class="text-center form-group">
+							<h3 class="section-subheading text-muted">Banished ?</h3>
+							<input type="radio" name="is_banished" value="0" {% if is_banished == 0 %} checked{% endif %}> No &nbsp;
+	  						<input type="radio" name="is_banished" value="1" {% if is_banished == 1 %} checked{% endif %}> Yes<br>
+  						</div>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+				<div class="col-lg-12 text-center">
+					<div id="success"></div>
+						<button class="btn btn-xl" type="submit">Create</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+{% endblock %}

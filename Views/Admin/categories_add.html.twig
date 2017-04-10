@@ -1,0 +1,41 @@
+{% extends "layout.html.twig" %}
+
+{% block title %} Create a new category {% endblock %}
+
+{% block content %}
+
+{% include 'header_admin.html.twig' %}
+
+	<div class="row">
+		<div class="col-lg-12">
+			<div>
+				<h4 class="team-member text-danger">
+				{% for msg in error_msg %}
+					{{ msg }}<br/>
+				{% endfor %}
+				</h4>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-12">
+			<form id="" novalidate="" name="create" method="post">
+				<div class="row">
+					<div class="col-md-3"></div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<input id="name" class="form-control" type="text" data-validation-required-message="Please enter a name." placeholder="Please enter a name." required name="name" min="3" max="10" value="{{ name }}">
+							<p class="help-block text-danger"></p>
+						</div>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+				<div class="col-lg-12 text-center">
+					<div id="success">
+						<button class="btn btn-xl" type="submit">Create</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+{% endblock %}

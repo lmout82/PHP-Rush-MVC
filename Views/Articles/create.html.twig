@@ -1,0 +1,67 @@
+{% extends "layout.html.twig" %}
+
+{% block title %} Create an article {% endblock %}
+
+{% block content %}
+
+{% include 'header_user.html.twig' %}
+<section id="contact">
+  <div class="container">
+	<div class="row">
+		<div class="col-lg-12">
+			<div>
+				<h2 class="section-heading text-center">Create new article</h2>
+				<h3 class="section-subheading text-muted text-center">Lorem ipsum dolor sit amet consectetur.</h3>
+				<h4 class="team-member text-danger">
+				{% for msg in error_msg %}
+					{{ msg }}<br/>
+				{% endfor %}
+				</h4>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-12">
+			<form id="create" novalidate="" name="create" method="post" enctype="multipart/form-data">
+				<div class="row">
+					<div class="col-md-6">
+                        <input type="hidden" name="user_id" value="{{ user_id }}">
+						<div class="form-group">
+							<input id="title" class="form-control" type="text" placeholder="Please enter the title of your article." required name="title" value="{{ title }}">
+							<p class="help-block text-danger"></p>
+						</div>
+                        <div class="form-group">
+                            <input id="image" class="form-control-file" type="file" placeholder="Please select an image (JPG, JPEG, PNG and GIF are accept)." required name="image" accept=".jpg,.jpeg,.gif,.png">
+                            <p class="help-block text-danger"></p>
+                        </div>
+						<div class="form-group">
+							<select id="category_id" class="form-control" placeholder="Please select a category." required name="category_id" value="{{ category_id }}">
+								{% if category_id == null %}
+                                <option value="" disabled selected>Please select a category.</option>
+								{% endif %}
+                                    {% for cat in categories %}
+                                        <option value="{{cat.id}}"{% if category_id == cat.id %} selected{% endif %}>{{ cat.name }}</option>
+                                    {% endfor %}
+                            </select>
+							<p class="help-block text-danger"></p>
+						</div>
+					</div>
+                    <div class="col-md-6">
+						<div class="form-group">
+							<textarea id="titre" class="form-control" placeholder="Please enter your article." required name="content">{{ content }}</textarea>
+							<p class="help-block text-danger"></p>
+						</div>
+                    </div>
+				</div>
+				<div class="clearfix"></div>
+				<div class="col-lg-12 text-center">
+					<div id="success"></div>
+						<button class="btn btn-xl" type="submit">Create</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+  </div>
+<section>
+{% endblock %}

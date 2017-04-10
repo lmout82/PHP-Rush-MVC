@@ -1,0 +1,21 @@
+{% extends "layout.html.twig" %}
+
+{% block title %} Logout {% endblock %}
+
+{% block content %}
+
+{% include 'header_user.html.twig' %}
+
+	<div class="row">
+		<div class="col-lg-12">
+			<div>
+				<h4 class="team-member text-danger">
+				{% for msg in error_msg %}
+					{{ msg }}<br/>
+					You are now logged out! >> home
+				{% endfor %}
+				</h4>
+			</div>
+		</div>
+	</div>
+{% endblock %}

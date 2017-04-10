@@ -1,0 +1,79 @@
+{% extends "layout.html.twig" %}
+
+{% block title %} {{ username }} Profile {% endblock %}
+
+{% block content %}
+
+{% include 'header_user.html.twig' %}
+
+  <section id="content">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading">Hello {{ username }}</h2>
+          <h3 class="section-subheading text-muted">Index page profile</h3>
+          <div class="row">
+            <div class="col-lg-12">
+              <div>
+                <h4 class="team-member text-danger">
+                {% for msg in error_msg %}
+                  {{ msg }}<br/>
+                {% endfor %}
+                </h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row">
+          <div class="col-lg-3"></div>
+          <div class="col-lg-2">
+            <div class="timeline-image text-center">
+              <a href="/PHP_Rush_MVC/index.php/users/update">
+                <span class="fa-stack fa-2x">
+                  <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                  <i class="fa fa-edit fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+                <a href="/PHP_Rush_MVC/index.php/users/update">
+                  <h4 class="subheading">Update</h4>
+                  <p class="text-muted preview-text">update your account</p>
+                </a>
+            </div>
+          </div>
+          <div class="col-lg-2">
+            <div class="timeline-image text-center">
+            {% if groupname == "writter" or groupname == "admin" %}
+              <a href="/PHP_Rush_MVC/index.php/articles/create">
+                <span class="fa-stack fa-2x">
+                  <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                  <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+                <a href="/PHP_Rush_MVC/index.php/admin/articles">
+                  <h4 class="subheading">Writte</h4>
+                  <p class="text-muted preview-text">Create a new article</p>
+                </a>
+            {% endif %}
+            </div>
+          </div>
+          <div class="col-lg-2">
+            <div class="timeline-image text-center">
+              <a href="/PHP_Rush_MVC/index.php/admin/articles">
+                <span class="fa-stack fa-2x">
+                  <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                  <i class="fa fa-ban fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+                <a href="/PHP_Rush_MVC/index.php/admin/articles">
+                  <h4 class="subheading">Close</h4>
+                  <p class="text-muted preview-text">delete your account</p>
+                </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>	
+{% endblock %}

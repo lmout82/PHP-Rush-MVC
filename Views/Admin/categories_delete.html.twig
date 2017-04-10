@@ -1,0 +1,19 @@
+{% extends "layout.html.twig" %}
+
+{% block title %} Create a new category {% endblock %}
+
+{% block content %}
+
+{% include 'header_admin.html.twig' %}
+
+	<div class="row">
+		<div class="col-lg-12">
+			<div>
+				<h4 class="team-member text-danger">
+				You can't delete a category when an article is still linked to it.<br/>
+				Click <a href="/PHP_Rush_MVC/index.php/admin/categories">here</a> to go back to the category management.
+				</h4>
+			</div>
+		</div>
+	</div>
+{% endblock %}
