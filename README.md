@@ -4,6 +4,12 @@ During my intensive training course at "Coding Academy" (Epitech-Paris, France),
 
 Here is one project from a PHP-MVC rush (4 days), realized in pair. I was in charge of the server-side scripting (PHP5/MySQL) while my teammate designed the front-end (bootstrap) and coded the templates (twig).
 
+## Important notice
+
+This repository was initially developed when I was learning to code a long long time ago. Please take into account that this work does not reflect my present skills.
+
+**_This repository is not maintained._**
+
 ## Main features
 
 Users can login, register and delete their account.
